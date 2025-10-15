@@ -1,16 +1,12 @@
 class Solution {
     public boolean isPowerOfTwo(int n) {
-       return helper(n , 0) ;
-    }
-    public static boolean helper(int n , int i){
-        if(Math.pow(2,i)>n){
+        if(n<=0){
             return false ;
         }
-        if(Math.pow(2,i) == n){
+        if((n&(n-1)) == 0){
             return true ;
-        }else{
-             return helper(n , i+1) ;
         }
-       
-    }
+        return false ;
+    }    
+    
 }
