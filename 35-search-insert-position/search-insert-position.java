@@ -1,17 +1,19 @@
 class Solution {
     public int searchInsert(int[] nums, int target) {
         int n = nums.length ;
-        int largest = nums[n-1] ;
-        if(target > largest){
-            return n ;
-        }
-        else{
-            for(int i = 0 ; i<nums.length ; i++){
-                if(target<=nums[i]){
-                    return i ; 
+        int si = 0 , ei = n-1  , mid = 0 ;
+         while(si<=ei){
+                mid = (si + ei)/2 ;
+                if(nums[mid] == target){
+                    return mid  ;
+                }
+                else if(nums[mid]>target){
+                    ei = mid - 1 ;
+                }
+                else{
+                    si = mid + 1 ;
                 }
             }
-        }
-        return 0 ;
+            return si ;
     }
 }
