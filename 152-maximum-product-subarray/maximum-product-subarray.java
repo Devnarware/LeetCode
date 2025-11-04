@@ -1,9 +1,9 @@
 class Solution {
-    public int maxProduct(int[] nums) {
-        int n = nums.length ;
+    public int maxProduct(int[] arr) {
+        int n = arr.length ;
         int pre = 1 ;
         int suff = 1 ;
-        int ans = nums[0] ;
+        int ans = arr[0] ;
         for(int i = 0 ; i<n ; i++){
             if(pre == 0){
                 pre = 1 ;
@@ -11,12 +11,10 @@ class Solution {
             if(suff == 0){
                 suff = 1 ;
             }
-            pre = pre*nums[i] ;
-            suff = suff*nums[n-1-i] ;
-
-            ans = Math.max(ans,Math.max(pre , suff)) ;
-
+            pre = pre*arr[i] ;
+            suff = suff*arr[n-1-i] ;
+            ans = Math.max(ans , Math.max(pre , suff)) ;
         }
-         return ans;
+        return ans ;
     }
 }
