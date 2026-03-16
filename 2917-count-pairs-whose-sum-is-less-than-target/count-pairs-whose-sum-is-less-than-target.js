@@ -13,7 +13,7 @@ var countPairs = function(nums, target) {
     while(i < j){
 
         if(nums[i] + nums[j] < target){
-            count += (j-i) ;
+            count += j-i ;
             i++ ;
         }else{
             j-- ;
