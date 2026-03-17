@@ -1,25 +1,47 @@
 class Solution {
-    public List<List<Integer>> threeSum(int[] arr) {
+    public List<List<Integer>> threeSum(int[] nums) {
+        
+
+        Arrays.sort(nums) ;
+        List<List<Integer>> ans = new ArrayList<>() ;
+
+        int n = nums.length - 1 ;
+
+        for(int i = 0 ; i < n-1 ; i++){
+            if(i > 0 && nums[i] == nums[i-1]){
+                continue ;
+            }
+            int j = i + 1 ; 
+            int k = n ;
+
+            while( j < k){
+
+                int sum = nums[i] + nums[j] + nums[k] ;
+
+                if(sum > 0){
+
+                    k-- ;
+
+                }else if(sum < 0){
+
+                    j++ ;
+
+                }else{
+
+                    List<Integer> temp = new ArrayList<>() ;
+                    temp = Arrays.asList(nums[i], nums[j], nums[k]);
+                    ans.add(temp) ;
 
 
-        Set<List<Integer>> result = new HashSet<>() ;
+                    j++ ;
+                    k-- ;
+                    while(j < k && nums[j] == nums[j-1]) j++ ;
+                    while(j < k && nums[k] == nums[k+1]) k-- ;
 
 
-        for(int i = 0 ; i<arr.length-1; i++){
-
-            Set<Integer> set = new HashSet<>() ;
-            for(int j = i+1 ; j<arr.length; j++){
-                int third = -(arr[i] + arr[j]) ;
-                if((set.contains(third)) ){
-                    List<Integer> temp = Arrays.asList(arr[i], arr[j], third) ;
-                    Collections.sort(temp) ;
-                    result.add(temp) ;
                 }
-                set.add(arr[j]) ;
             }
         }
-
-        // result.removeDuplicates() ;
-        return new ArrayList<>(result) ;
+        return ans ;
     }
 }
