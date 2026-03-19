@@ -11,19 +11,13 @@ class Solution {
         int n = s.length();
 
         while (j < m && i < n) {
-            if (s.charAt(i) == t.charAt(j)) {
-                while (i < n && j < m ) {
-                    if(s.charAt(i) == t.charAt(j)){
-                        i++ ;
-                        j++ ;
-                    }
-                    else{
-                        i++ ;
-                    }
-                }
-                return m - j;
+            if(s.charAt(i) == t.charAt(j)){
+                i++ ;
+                j++ ;
             }
-            i++;
+            else{
+                i++ ;
+            }
         }
         return m - j;
     }
