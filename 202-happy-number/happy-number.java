@@ -1,18 +1,18 @@
 class Solution {
     public boolean isHappy(int n) {
-        Set<Integer> set = new HashSet<>(); 
-
+        int fast = n;
+        int slow = n ;
         while(true){
-            n = helper(n) ;
-            if(n == 1){
+            slow = helper(slow) ;
+            fast = helper(fast) ;
+            fast = helper(fast) ;
+
+            if(fast == 1){
                 return true ;
-            }else if(set.contains(n)){
-                break ;
-            }else{
-                set.add(n) ;
+            }else if(fast == slow){
+                return false ;
             }
         }
-        return false ;
     }
 
 
