@@ -11,47 +11,49 @@
 class Solution {
     public boolean isPalindrome(ListNode head) {
 
-         if (head == null || head.next == null) return true;
+        // STEP 1:- BREAK FROM THE MIDDLE 
 
-        ListNode slow = head ;
-        ListNode fast = head ;
+        ListNode slow = head;
+        ListNode fast = head;
 
-        //FINDING MID
-        while(fast != null && fast.next != null){
-            slow = slow.next ;
-            fast = fast.next.next ;
-        }
-
-        if (fast != null) {
+        while (fast != null && fast.next != null) {
             slow = slow.next;
+            fast = fast.next.next;
         }
 
-       
-        //REVERSE THE RIGHT PART OF THER NODE
+        // STEP 2:- reverse the second half od the LL
 
-        ListNode right = reverse(slow) ;
+        ListNode rightHead = reverse (slow) ;
 
 
-        //CHECKING IF PALINDROME OR NOT
+        // Step 3:- Compare for a palindrome 
 
-        while(right != null){
-            if(head.val != right.val){
+        ListNode temp = head ;
+        ListNode temp2 = rightHead ;
+        while(temp2 != null){
+            if(temp.val != temp2.val){
                 return false ;
             }
-            right = right.next ;
-            head = head.next ;
-        } 
+            temp = temp.next ;
+            temp2 = temp2.next ;
+        }
+
         return true ;
     }
 
-    public static ListNode reverse(ListNode head){
-        ListNode node = null ;
+    private ListNode reverse(ListNode head){
+        ListNode temp = head ;
+        ListNode last = null ;
+
         while(head != null){
-            ListNode temp = head.next ;
-            head.next = node ;
-            node = head ;
-            head = temp ;
+            temp = head ;
+            head = head.next ;
+            temp.next = last ;
+            last = temp ;
         }
-        return node ;
+
+        return temp ;
     }
+
+
 }
