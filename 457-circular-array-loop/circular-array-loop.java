@@ -19,6 +19,10 @@ class Solution {
 
         for(int i = 0 ; i < nums.length ; i++){
 
+            if(nums[i] == 0){
+                continue ;
+            }
+
             // set :- to check that if we visit on that index or not
             Set<Integer> set = new HashSet<>() ;
             set.add(i) ; // already there so marked as visited
@@ -70,6 +74,18 @@ class Solution {
                 }
 
                 curr = next ;
+            }
+            curr = i ;
+            if(isPos){
+                while(nums[curr] > 0){
+                    nums[curr] = 0 ;
+                    curr = nextIdx(nums, curr) ;
+                }
+            }else{
+                while(nums[curr] < 0){
+                    nums[curr] = 0 ;
+                    curr = nextIdx(nums, curr) ;
+                }
             }
         }
 
