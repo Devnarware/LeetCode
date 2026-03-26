@@ -78,13 +78,15 @@ class Solution {
             curr = i ;
             if(isPos){
                 while(nums[curr] > 0){
+                    int next = nextIdx(nums, curr) ;
                     nums[curr] = 0 ;
-                    curr = nextIdx(nums, curr) ;
+                    curr = next ;
                 }
             }else{
                 while(nums[curr] < 0){
+                    int next = nextIdx(nums, curr) ;
                     nums[curr] = 0 ;
-                    curr = nextIdx(nums, curr) ;
+                    curr = next ;
                 }
             }
         }
