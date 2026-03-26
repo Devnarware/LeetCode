@@ -10,46 +10,24 @@
  */
 class Solution {
     public int pairSum(ListNode head) {
-        
-        // STEP 1:- find the mid
+        ArrayList<Integer> list = new ArrayList<>() ;
 
-        ListNode slow = head ;
-        ListNode fast = head ;
-
-        while(fast != null){
-            slow = slow.next ;
-            fast = fast.next.next ;
+        while(head != null){
+            list.add(head.val) ;
+            head = head.next ;
         }
 
-
-        //STEP 2:- reverse form the mid part
-        ListNode head2 = reverse(slow) ;
-
-        // STEP 3 :- final check to fins the max sum
+        int i = 0 ;
+        int j = list.size() -1  ;
         int sum = 0 ;
 
-        while(head2 != null){
-            int currSum = head.val + head2.val ;
-            sum = Math.max(currSum, sum) ;
-
-            head2 = head2.next ;
-            head = head.next ;
+        while(i < j){
+            int currSum = list.get(i) + list.get(j) ;
+            sum = Math.max(sum, currSum) ;
+            i++ ;
+            j-- ;
         }
 
         return sum ;
-    }
-
-    private ListNode reverse(ListNode head) {
-        ListNode prev = null ;
-        ListNode curr ;
-
-        while(head != null){
-            curr = head ;
-            head = head.next ;
-            curr.next = prev ;
-            prev = curr ;
-        }
-
-        return prev ;
     }
 }
