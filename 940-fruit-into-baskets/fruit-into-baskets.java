@@ -9,7 +9,7 @@ class Solution {
         while(j < arr.length){
             map.put(arr[j], map.getOrDefault(arr[j], 0) +1 );
 
-            while (map.size() > 2){
+            if (map.size() > 2){
                 map.put(arr[i], map.get(arr[i]) - 1) ;
                 if(map.get(arr[i]) == 0){
                     map.remove(arr[i]) ;
