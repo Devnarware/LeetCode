@@ -11,28 +11,17 @@ class Solution {
         int max = 0 ;
         long sum = 0 ;
 
-        int j = 0 ;
+        int i = 0 ;
 
-        for (int i = 0 ; i < n-1 ; i++){
-            while(j < n){
-                sum += arr[j] ;
-                long total = (long)arr[j] * (j - i + 1) ; // total token
-                long token_need = total - sum ;
+        for(int j = 0 ; j< n ; j++){
+            sum += arr[j] ;
 
-                if(token_need > k){
-                    sum = sum - arr[i] - arr[j]  ;
-                    i++ ;
-                    continue ;
-                }
-
-                max = Math.max(max, (j - i + 1)) ;
-                j++ ;
-
+            if((long)arr[j] * (j - i + 1) - sum > k){
+                sum = sum - arr[i]  ;
+                i++ ;
             }
-            break ;
+            max = Math.max(max, (j - i + 1)) ;
         }
-
-       
 
         return max ;
     }
