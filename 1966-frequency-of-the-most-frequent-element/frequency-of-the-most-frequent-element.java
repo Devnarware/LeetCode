@@ -8,7 +8,7 @@ class Solution {
         }
         Arrays.sort(arr);
 
-        int max = 0 ;
+        // int max = 0 ;
         long sum = 0 ;
 
         int i = 0 ;
@@ -20,9 +20,9 @@ class Solution {
                 sum = sum - arr[i]  ;
                 i++ ;
             }
-            max = Math.max(max, (j - i + 1)) ;
+            // max = Math.max(max, (j - i + 1)) ;
         }
 
-        return max ;
+        return n-i ;
     }
 }
