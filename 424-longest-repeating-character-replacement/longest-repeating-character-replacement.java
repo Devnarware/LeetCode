@@ -11,8 +11,8 @@ class Solution {
             arr[c-'A'] = arr[c-'A'] + 1 ;
             maxC = Math.max(maxC, arr[c-'A'] ) ;
 
-            int op = (j-i+1) -maxC ;
-            if(op>k){
+            // int op = (j-i+1) -maxC ;
+            while((j-i+1) -maxC>k){
                 arr[s.charAt(i)-'A'] = arr[s.charAt(i)-'A'] -1 ; 
                 i++ ;
             }
