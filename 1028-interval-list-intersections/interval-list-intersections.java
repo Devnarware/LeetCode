@@ -29,12 +29,8 @@ class Solution {
             }
         }
 
-        int[][] ans = new int[list.size()][2] ;
+        
 
-        for(int k = 0; k<list.size(); k++){
-            ans[k] = list.get(k) ;
-        }
-
-        return ans ;
+        return list.toArray(new int[list.size()][2]) ;
     }
 }
