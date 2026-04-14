@@ -24,14 +24,13 @@ class Solution {
 
         int gap = 0 ; 
 
-        for(int i = 1; i < list.size(); i++){
-            gap += list.get(i)[0] - list.get(i - 1)[1] - 1;
+        for(int i = 0; i < list.size(); i++){
+            gap += list.get(i)[1] - list.get(i)[0] + 1;
         }
 
-        gap += list.get(0)[0] - 1 ;
-        gap += days - list.get(list.size() - 1)[1] ;
+        
 
 
-        return gap ;
+        return days - gap ;
     }
 }
