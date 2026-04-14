@@ -10,7 +10,7 @@ class Solution {
 
             if (curr[0] <= prev[1]) {
                 // merge..
-                // prev[0] = Math.min(prev[0], curr[0]);
+                prev[0] = Math.min(prev[0], curr[0]);
                 prev[1] = Math.max(prev[1], curr[1]);
             } else {
                 list.add(intervals[i]);
@@ -18,13 +18,9 @@ class Solution {
 
         }
 
-        int res[][] = new int[list.size()][2];
+        
 
-        for (int i = 0; i < list.size(); i++) {
-            res[i] = list.get(i);
-        }
-
-        return res;
+        return list.toArray(new int[list.size()][2]);
 
     }
 }
