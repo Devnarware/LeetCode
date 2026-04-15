@@ -1,36 +1,18 @@
 class Solution {
     public int countDays(int days, int[][] meetings) {
         
-        Arrays.sort(meetings, Comparator.comparingInt(a -> a[0])) ;
-
-        List<int[]> list = new ArrayList<>() ;
-        list.add(meetings[0]) ;
-
+        Arrays.sort(meetings, Comparator.comparingInt(a -> a[0])) ;    
+        int maxEnd = meetings[0][1] ;
+        int gap = 0 ;
         for(int i = 1; i < meetings.length; i++){
-            if(meetings[i][0] <= list.get(list.size() - 1)[1]){
-                list.get(list.size() - 1)[0] = Math.min(
-                    list.get(list.size() - 1)[0],
-                    meetings[i][0] 
-                ) ;
-                list.get(list.size() - 1)[1] = Math.max(
-                    list.get(list.size() - 1)[1],
-                    meetings[i][1] 
-                ) ;
+            if(meetings[i][0] > maxEnd){
+                gap += meetings[i][0] - maxEnd -1 ;
             }
-            else{
-                list.add(meetings[i]) ;
-            }
-        } 
-
-        int gap = 0 ; 
-
-        for(int i = 0; i < list.size(); i++){
-            gap += list.get(i)[1] - list.get(i)[0] + 1;
+            maxEnd = Math.max(maxEnd, meetings[i][1]) ;
         }
 
-        
+        gap += meetings[0][0] + days - maxEnd - 1 ;
 
-
-        return days - gap ;
+        return gap ;
     }
 }
