@@ -24,6 +24,12 @@ class Solution {
             i++ ;
         }
 
-        return list.toArray(new int[list.size()][2]) ;
+        int[][] ans = new int[list.size()][2] ;
+
+        for(int j = 0 ; j< list.size(); j++){
+            ans[j] = list.get(j) ;
+        }
+
+        return ans ;
     }
 }
