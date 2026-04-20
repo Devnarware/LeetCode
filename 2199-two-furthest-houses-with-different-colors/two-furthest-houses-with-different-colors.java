@@ -5,13 +5,15 @@ class Solution {
         for(int i = 0; i<colors.length; i++){
             
                 if(colors[i] != colors[colors.length-1]){
-                    max = Math.max(max, colors.length-1-i) ;
+                    max = colors.length-1-i ;
+                    break ;
                 }
         }
         for(int i = colors.length -1; i>0; i--){
             
                 if(colors[i] != colors[0]){
                     max = Math.max(max, i) ;
+                    break ;
                 }
         }
 
