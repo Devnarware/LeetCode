@@ -3,11 +3,16 @@ class Solution {
         int max = 0 ;
 
         for(int i = 0; i<colors.length; i++){
-            for(int j = i; j<colors.length; j++){
-                if(colors[i] != colors[j]){
-                    max = Math.max(max, j-i) ;
+            
+                if(colors[i] != colors[colors.length-1]){
+                    max = Math.max(max, colors.length-1-i) ;
                 }
-            }
+        }
+        for(int i = colors.length -1; i>0; i--){
+            
+                if(colors[i] != colors[0]){
+                    max = Math.max(max, i) ;
+                }
         }
 
         return max ;
