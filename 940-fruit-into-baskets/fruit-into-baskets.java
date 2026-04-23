@@ -4,7 +4,7 @@ class Solution {
 
         int i = 0 ; 
         int j = 0 ;
-        int max = 1 ;
+        int max = 0 ;
 
         while(j < arr.length){
             map.put(arr[j], map.getOrDefault(arr[j], 0) +1 );
